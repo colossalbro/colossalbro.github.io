@@ -1,16 +1,15 @@
 ---
-title: "OBO"
-author_profile: true
-show_excerpts: false
+title: ""
+permalink: /blog/
 layout: single
-entries_layout: grid
+share: false
+author_profile: true
 ---
-
 <div class="blog-posts">
-  <h1 class="page-title">Recent Posts</h1>
+  <h1 class="page-title">Latest Posts</h1>
 
   <div class="post-grid">
-    {% for post in site.posts limit:6 %}
+    {% for post in site.posts %}
       <article class="post-card">
         {% if post.image %}
           <div class="post-image">
@@ -34,10 +33,6 @@ entries_layout: grid
       </article>
     {% endfor %}
   </div>
-
-  <div class="view-all">
-    <a href="/blog/" class="view-all-button">View All Posts →</a>
-  </div>
 </div>
 
 <style>
@@ -59,7 +54,6 @@ entries_layout: grid
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
-    margin-bottom: 3rem;
   }
 
   .post-card {
@@ -74,6 +68,50 @@ entries_layout: grid
 
   .post-card:hover {
     transform: translateY(-5px);
+  }
+
+  .post-content {
+    padding: 1.5rem;
+  }
+
+  .post-title {
+    margin: 0 0 1rem;
+    font-size: 1.5em;
+  }
+
+  .post-title a {
+    color: #34495e;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .post-title a:hover {
+    color:rgb(16, 12, 7);
+  }
+
+  .post-meta {
+    color: #7f8c8d;
+    font-size: 0.9em;
+    margin-bottom: 1rem;
+  }
+
+  .post-excerpt {
+    color: #666;
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .read-more {
+    display: inline-block;
+    color: #e67e22;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+
+  .read-more:hover {
+    color: #d35400;
   }
 
   .post-image {
@@ -94,75 +132,6 @@ entries_layout: grid
     transform: scale(1.05);
   }
 
-  .post-content {
-    padding: 1.5rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .post-title {
-    margin: 0 0 1rem;
-    font-size: 1.5em;
-  }
-
-  .post-title a {
-    color: #34495e;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  .post-title a:hover {
-    color: #e67e22;
-  }
-
-  .post-meta {
-    color: #7f8c8d;
-    font-size: 0.9em;
-    margin-bottom: 1rem;
-  }
-
-  .post-excerpt {
-    color: #666;
-    font-size: 0.95em;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-    flex-grow: 1;
-  }
-
-  .read-more {
-    display: inline-block;
-    color: #e67e22;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s ease;
-    align-self: flex-start;
-  }
-
-  .read-more:hover {
-    color: #d35400;
-  }
-
-  .view-all {
-    text-align: center;
-    margin-top: 2rem;
-  }
-
-  .view-all-button {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background-color: #0a0705;
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.2s ease;
-    font-weight: 600;
-  }
-
-  .view-all-button:hover {
-    background-color: #d35400;
-  }
-
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .post-grid {
@@ -174,3 +143,11 @@ entries_layout: grid
     }
   }
 </style>
+
+<nav>
+  {% for item in site.data.navigation %}
+    <a href="{{ item.link }}" {% if page.url == item.link %}style="color: red;"{% endif %}>
+      {{ item.name }}
+    </a>
+  {% endfor %}
+</nav>
