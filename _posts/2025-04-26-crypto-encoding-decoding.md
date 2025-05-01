@@ -274,7 +274,7 @@ class ProxyModifier:
                 flow.request.headers["Content-Type"] = "application/json"
 
             except Exception as e:
-                print(f'\n\nERROR DECRYPTING PAYLOAD FROM EXAMPLE API => {e}\n')    #should probably improve this
+                print(f'\n\nERROR DECRYPTING PAYLOAD FROM API => {e}\n')    #should probably improve this
 
 
 addons = [ProxyModifier()]
